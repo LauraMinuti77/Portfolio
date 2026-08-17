@@ -1,332 +1,220 @@
 <!DOCTYPE html>
-<!-- ↑ Avisa ao navegador que essa página usa HTML5 (o padrão atual). Sempre fica na 1ª linha. -->
-
 <html lang="pt-BR">
-<!-- ↑ Abre a página. lang="pt-BR" diz que o conteúdo está em português do Brasil (ajuda leitores de tela e o Google). -->
-
 <head>
-  <!-- ↑ Início da parte "invisível" da página: nada aqui dentro aparece na tela, exceto o que é indicado. -->
-
   <meta charset="UTF-8">
-  <!-- ↑ Diz qual o "alfabeto" usado no arquivo. UTF-8 permite acentos (ã, ç, é) sem bugar. -->
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- ↑ Faz a página se ajustar à largura da tela do celular. Sem isso, o site fica "zoomado" no mobile. -->
-
   <title>Laura Minuti dos Anjos - Portfólio</title>
-  <!-- ↑ Texto que aparece na aba do navegador. -->
-
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="style.css">
-  <!-- ↑ Conecta esse HTML ao arquivo style.css. É essa linha que faz as cores/estilos funcionarem. -->
-
 </head>
-<!-- ↑ Fecha a parte invisível. -->
-
 <body>
-<!-- ↑ Começa a parte VISÍVEL da página. Tudo daqui pra baixo aparece na tela. -->
 
+  <!-- MENU -->
   <header>
-  <!-- ↑ <header> = cabeçalho da página. Aqui vai o menu. -->
-
     <nav>
-    <!-- ↑ <nav> = área de navegação (o menu em si). -->
-
       <p class="logo">Laura Minuti dos Anjos</p>
-      <!-- ↑ Um parágrafo com o seu nome. class="logo" é só um "apelido" pro CSS achar e estilizar esse texto. -->
-
       <ul>
-      <!-- ↑ <ul> = início de uma lista (sem numeração). Vai conter os links do menu. -->
-
         <li><a href="#inicio">Início</a></li>
-        <!-- ↑ <li> = um item da lista. Dentro dele, <a href="#inicio"> é um link que pula até o id="inicio" da página. -->
-
         <li><a href="#sobre">Sobre mim</a></li>
-        <!-- ↑ Mesmo esquema: pula até o id="sobre". -->
-
         <li><a href="#habilidades">Habilidades</a></li>
-        <!-- ↑ Pula até o id="habilidades". -->
-
         <li><a href="#projetos">Projetos</a></li>
-        <!-- ↑ Pula até o id="projetos". -->
-         
-        <li><a href="#cursos">Cursos e Certificações</a></li>
-        <!-- ↑ Pula até o id="cursos". -->
-
+        <li><a href="#cursos">Cursos</a></li>
         <li><a href="#contato">Contato</a></li>
-        <!-- ↑ Pula até o id="contato". -->
-
       </ul>
-      <!-- ↑ Fecha a lista de links. -->
-
     </nav>
-    <!-- ↑ Fecha a área de navegação. -->
-
   </header>
-  <!-- ↑ Fecha o cabeçalho. -->
 
 
+  <!-- INÍCIO -->
   <section id="inicio" class="hero">
-  <!-- ↑ Início da seção "Início". id="inicio" é o alvo do link do menu. class="hero" é o nome que o CSS usa pra estilizar essa seção. -->
-
     <h1>Laura Minuti dos Anjos</h1>
-    <!-- ↑ <h1> = título principal da página. Só deve existir UM h1 por página. -->
-
     <p class="subtitulo">Estudante de Ciência da Computação</p>
-    <!-- ↑ Parágrafo com a profissão/curso. class="subtitulo" permite estilizar só esse texto de forma diferente. -->
-
     <p>Em busca de oportunidades para aplicar meus conhecimentos, desenvolver novas habilidades e crescer profissionalmente na área de tecnologia.</p>
-    <!-- ↑ Parágrafo comum, sem classe — pega o estilo geral definido pra "p" dentro de ".hero" no CSS. -->
 
     <div class="botoes">
-    <!-- ↑ <div> = uma "caixa" sem significado próprio, só serve pra AGRUPAR os dois botões abaixo. -->
-
-      <a href="https://github.com/LauraMinuti77" target="_blank" class="botao botao-cheio">GitHub</a>
-      <!-- ↑ Link para o GitHub. target="_blank" abre em nova aba. Repare: TEM DUAS classes (botao E botao-cheio), separadas por espaço — o elemento recebe o estilo das duas. -->
-
-      <a href="https:/www.linkedin.com/in/laura-minuti" target="_blank" class="botao botao-vazio">LinkedIn</a>
-      <!-- ↑ Mesmo esquema, mas com a classe "botao-vazio" (estilo de contorno, sem preenchimento). -->
-      
+      <a href="https://github.com/LauraMinuti77" target="_blank" class="botao botao-vazio">GitHub</a>
+      <a href="https://www.linkedin.com/in/laura-minuti" target="_blank" class="botao botao-vazio">LinkedIn</a>
       <a href="https://www.instagram.com/minutixzz/" target="_blank" class="botao botao-vazio">Instagram</a>
-      <!-- ↑ Mesmo esquema, mas com a classe "botao-vazio" (estilo de contorno, sem preenchimento). -->
-
     </div>
-    <!-- ↑ Fecha a caixa dos botões. -->
-
   </section>
-  <!-- ↑ Fecha a seção "Início". -->
 
 
+  <!-- SOBRE MIM -->
   <section id="sobre" class="secao">
-  <!-- ↑ Início da seção "Sobre". class="secao" é reaproveitada nas próximas seções (mesmo espaçamento pra todas). -->
-
     <h2>Sobre mim</h2>
-    <!-- ↑ <h2> = título de seção (menor que h1). Cada seção do site tem o seu. -->
-    <img src="images/eu1.jpg" alt="Foto de Laura Minuti" class="foto-perfil">
+    <img src="images/eu1.jpg" alt="Foto de Laura Minuti dos Anjos" class="foto-perfil">
 
     <p>
-      Sou estudante de Ciência da Computação, com interesse em tecnologia, desenvolvimento de software e análise de dados. 
-      Tenho desenvolvido meus conhecimentos por meio de projetos práticos e cursos complementares, 
+      Sou estudante de Ciência da Computação, com interesse em tecnologia, desenvolvimento de software e análise de dados.
+      Tenho desenvolvido meus conhecimentos por meio de projetos práticos e cursos complementares,
       utilizando ferramentas e tecnologias como Python, HTML, CSS, Power BI e Power Query.
     </p>
-    <!-- ↑ Primeiro parágrafo do texto sobre você. Quebrar em várias linhas no código não afeta o resultado na tela. -->
 
     <p>
-      Busco minha primeira oportunidade de estágio na área de tecnologia, 
-      onde possa aplicar meus conhecimentos, 
-      adquirir experiência profissional 
+      Busco minha primeira oportunidade de estágio na área de tecnologia,
+      onde possa aplicar meus conhecimentos,
+      adquirir experiência profissional
       e continuar evoluindo por meio de novos desafios e aprendizados.
     </p>
-    <!-- ↑ Segundo parágrafo. -->
-
   </section>
-  <!-- ↑ Fecha a seção "Sobre". -->
 
 
+  <!-- HABILIDADES -->
   <section id="habilidades" class="secao">
-  <!-- ↑ Início da seção "Habilidades". -->
-
     <h2>Habilidades</h2>
-    <!-- ↑ Título da seção. -->
 
     <div class="cards">
-    <!-- ↑ Caixa que vai conter os 3 cartões (Linguagens, Dados, Ferramentas). O CSS usa "cards" pra colocá-los lado a lado. -->
 
       <div class="card">
-      <!-- ↑ Primeiro cartão. class="card" define a aparência (fundo, borda, espaçamento). -->
-
         <h3>Linguagens</h3>
-        <!-- ↑ <h3> = título pequeno, dentro do card. -->
-
         <ul>
-        <!-- ↑ Lista das linguagens. -->
           <li>Python</li>
           <li>C#</li>
-          <li>HTML</li>
-          <li>CSS</li>
+          <li>HTML5</li>
+          <li>CSS3</li>
         </ul>
-        <!-- ↑ Cada linguagem é um item <li>. Fecha a lista. -->
-
       </div>
-      <!-- ↑ Fecha o card "Linguagens". -->
 
       <div class="card">
-      <!-- ↑ Segundo cartão: Dados. Mesma estrutura do anterior, só muda o conteúdo. -->
-
         <h3>Dados</h3>
         <ul>
           <li>Power BI</li>
           <li>Power Query</li>
           <li>Excel</li>
-          <li>Word</li>
         </ul>
-
       </div>
-      <!-- ↑ Fecha o card "Dados". -->
 
       <div class="card">
-      <!-- ↑ Terceiro cartão: Ferramentas. -->
-
         <h3>Ferramentas</h3>
         <ul>
           <li>GitHub</li>
           <li>VS Code</li>
+          <li>Visual Studio</li>
+          <li>Word</li>
         </ul>
-
       </div>
-      <!-- ↑ Fecha o card "Ferramentas". -->
 
     </div>
-    <!-- ↑ Fecha a caixa "cards". -->
-
   </section>
-  <!-- ↑ Fecha a seção "Habilidades". -->
 
 
+  <!-- PROJETOS -->
   <section id="projetos" class="secao">
-  <!-- ↑ Início da seção "Projetos". -->
-
     <h2>Projetos</h2>
-    <!-- ↑ Título da seção. -->
 
     <div class="cards">
-    <!-- ↑ Mesma caixa "cards" de antes — reaproveitando o mesmo estilo de grade pros projetos. -->
 
       <div class="card">
-      <!-- ↑ Card do projeto 1. -->
-
         <h3>📊 Dashboard de Vendas</h3>
-        <!-- ↑ Título do projeto (o emoji é só um caractere de texto, funciona igual a uma letra). -->
-
         <p class="tecnologias">Power BI, Power Query</p>
-        <!-- ↑ Linha das tecnologias usadas, com uma classe própria pra ficar destacada em roxo claro no CSS. -->
-
         <p>Dashboard desenvolvido durante o curso de Microsoft Power BI do SENAI, com foco na análise de vendas, faturamento, produtos, clientes e lojas.</p>
-        <!-- ↑ Descrição do projeto. -->
-
         <a href="https://github.com/LauraMinuti77/dashboard-power-bi-senai" target="_blank" class="link-projeto">Ver projeto →</a>
-        <!-- ↑ Link pro projeto. Troque o href="#" pelo link real (ex: do GitHub) quando tiver. -->
-
       </div>
-      <!-- ↑ Fecha o card do projeto 1. -->
 
       <div class="card">
-      <!-- ↑ Card do projeto 2. Mesma estrutura, muda só o conteúdo. -->
-
         <h3>⚽ Quiz de Futebol</h3>
         <p class="tecnologias">HTML, CSS, JavaScript</p>
         <p>Quiz interativo sobre futebol desenvolvido como projeto para praticar lógica de programação e desenvolvimento web.</p>
         <a href="https://github.com/LauraMinuti77/Quiz-Futebol" target="_blank" class="link-projeto">Ver projeto →</a>
-
       </div>
-      <!-- ↑ Fecha o card do projeto 2. -->
 
       <div class="card">
-      <!-- ↑ Card do projeto 3. -->
-
         <h3>🔐 Gerador de Senhas</h3>
         <p class="tecnologias">Python</p>
         <p>Projeto desenvolvido em Python para geração de senhas aleatórias, praticando lógica de programação e manipulação de dados.</p>
         <a href="https://github.com/LauraMinuti77/gerador-de-senhas-python" target="_blank" class="link-projeto">Ver projeto →</a>
-
       </div>
-      <!-- ↑ Fecha o card do projeto 3. -->
 
       <div class="card">
-      <!-- ↑ Card do projeto 4. -->
-
         <h3>🧮 Calculadora</h3>
         <p class="tecnologias">Python, CustomTkinter</p>
         <p>Calculadora simples desenvolvida em Python para praticar operações matemáticas e conceitos básicos da linguagem.</p>
         <a href="https://github.com/LauraMinuti77/Calculadora-Simples-Python" target="_blank" class="link-projeto">Ver projeto →</a>
-
       </div>
-      <!-- ↑ Fecha o card do projeto 4. -->
 
     </div>
-    <!-- ↑ Fecha a caixa "cards" dos projetos. -->
-
   </section>
-  <!-- ↑ Fecha a seção "Projetos". -->
+
+
+  <!-- CURSOS E CERTIFICAÇÕES -->
   <section id="cursos" class="secao">
     <h2>Cursos e Certificações</h2>
 
     <div class="cards">
 
-    <div class="card">
-      <h3>Nome do curso</h3>
-      <p class="tecnologias">Instituição · Ano</p>
-      <p>Uma frase curta sobre o que você aprendeu ou praticou nesse curso.</p>
-    </div>
+      <div class="card">
+        <h3>Excel Básico</h3>
+        <p class="tecnologias">SENAI - Online · 2025</p>
+        <p>Curso voltado aos fundamentos do Microsoft Excel, abordando criação e formatação de planilhas, fórmulas, funções básicas, gráficos e organização de dados.</p>
+      </div>
 
-    <div class="card">
-      <h3>Outro curso</h3>
-      <p class="tecnologias">Instituição · Ano</p>
-      <p>Descrição breve.</p>
-    </div>
+      <div class="card">
+        <h3>Competência Transversal - Tecnologia da Informação e Comunicação</h3>
+        <p class="tecnologias">SENAI - Online · 2025</p>
+        <p>Curso sobre fundamentos de Tecnologia da Informação e Comunicação (TIC), abordando ferramentas digitais, internet, comunicação e uso da tecnologia no ambiente profissional.</p>
+      </div>
 
-   </div>
+      <div class="card">
+        <h3>Competência Transversal - Lógica de Programação</h3>
+        <p class="tecnologias">SENAI - Online · 2025</p>
+        <p>Curso voltado aos fundamentos da lógica de programação, abordando conceitos básicos, algoritmos, fluxogramas e introdução à programação.</p>
+      </div>
+
+      <div class="card">
+        <h3>Ética na Inteligência Transversal</h3>
+        <p class="tecnologias">SENAI - Online · 2025</p>
+        <p>Curso sobre princípios éticos no uso da Inteligência Artificial, abordando responsabilidade, privacidade, segurança e impactos da tecnologia na sociedade.</p>
+      </div>
+
+      <div class="card">
+        <h3>Excel do básico ao Intermediário</h3>
+        <p class="tecnologias">Santander Open Academy · 2025</p>
+        <p>Curso com aprendizado progressivo do nível básico ao avançado, abordando conceitos, ferramentas e aplicações práticas para o desenvolvimento de habilidades na área.</p>
+      </div>
+
+      <div class="card">
+        <h3>Microsoft Power BI</h3>
+        <p class="tecnologias">SENAI - Bauru · 2026</p>
+        <p>Curso de Microsoft Power BI, abordando tratamento e análise de dados, criação de dashboards, relatórios interativos e visualização de informações.</p>
+      </div>
+
+      <div class="card">
+        <h3>Fundamentos do Python 1</h3>
+        <p class="tecnologias">SENAI - Bauru · 2026</p>
+        <p>Curso de fundamentos do Python, abordando conceitos básicos, sintaxe, estruturas de dados e programação orientada a objetos.</p>
+      </div>
+
+    </div>
   </section>
 
+
+  <!-- CONTATO -->
   <section id="contato" class="secao secao-escura">
-  <!-- ↑ Início da seção "Contato". Note DUAS classes: "secao" (espaçamento padrão) + "secao-escura" (fundo preto extra). -->
-
     <h2>Contato</h2>
-    <!-- ↑ Título da seção. -->
-
     <p>Estou aberta a oportunidades de estágio e novos desafios na área de tecnologia.</p>
-    <!-- ↑ Frase de fechamento. -->
 
     <div class="cards">
-    <!-- ↑ Reaproveitando "cards" de novo para os 3 blocos de contato. -->
-
-      <a href="https://github.com/" target="_blank" class="card">
-      <!-- ↑ Repare: aqui o PRÓPRIO link <a> tem a classe "card" — o card inteiro é clicável, não só um texto dentro dele. -->
-
+      <a href="https://github.com/LauraMinuti77" target="_blank" class="card">
         <h3>GitHub</h3>
         <p>https://github.com/LauraMinuti77</p>
-        <!-- ↑ Troque por: github.com/SEU-USUARIO-REAL -->
-
       </a>
-      <!-- ↑ Fecha o card-link do GitHub. -->
 
-      <a href="https://linkedin.com/" target="_blank" class="card">
-      <!-- ↑ Card-link do LinkedIn. -->
-
+      <a href="https://www.linkedin.com/in/laura-minuti" target="_blank" class="card">
         <h3>LinkedIn</h3>
         <p>https://www.linkedin.com/in/laura-minuti</p>
-        <!-- ↑ Troque pelo link real do seu perfil. -->
-
       </a>
-      <!-- ↑ Fecha o card-link do LinkedIn. -->
 
-      <a href="mailto:laura.minuti@email.com" class="card">
-      <!-- ↑ Card-link de e-mail. "mailto:" faz abrir o programa de e-mail do usuário já com seu endereço no destinatário. -->
-
+      <a href="minutilaura0@hotmail.com" class="card">
         <h3>E-mail</h3>
         <p>minutilaura0@hotmail.com</p>
-        <!-- ↑ Troque pelo seu e-mail real (e troque também no mailto: acima). -->
-
       </a>
-      <!-- ↑ Fecha o card-link de e-mail. -->
-
     </div>
-    <!-- ↑ Fecha a caixa "cards" do contato. -->
-
   </section>
-  <!-- ↑ Fecha a seção "Contato". -->
 
 
   <footer>
-  <!-- ↑ <footer> = rodapé, o final da página. -->
-
     <p>© 2026 Laura Minuti dos Anjos</p>
-    <!-- ↑ Texto de créditos. -->
-
   </footer>
-  <!-- ↑ Fecha o rodapé. -->
 
 </body>
-<!-- ↑ Fecha a parte visível da página. -->
-
 </html>
-<!-- ↑ Fecha o documento HTML. -->

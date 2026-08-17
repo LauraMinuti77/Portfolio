@@ -1,67 +1,31 @@
 /* ============================================
-   1. VARIÁVEIS DE COR
-   Aqui você define os "apelidos" de cada cor.
-   Troque o código hexadecimal aqui e ela muda em todo o site.
+   1. CORES — troque aqui pra mudar em todo o site
    ============================================ */
 
 :root {
-  /* ↑ :root representa "a página inteira" — as variáveis aqui valem em qualquer lugar do CSS. */
-
   --preto: #0a0910;
-  /* ↑ Cor de fundo geral do site. */
-
   --roxo: #9333ea;
-  /* ↑ Roxo principal — usado em botões, bordas, títulos de destaque. */
-
   --roxo-claro: #c084fc;
-  /* ↑ Roxo mais claro — usado em textos de destaque e efeitos de hover (quando passa o mouse). */
-
   --cinza-claro: #f3f1fa;
-  /* ↑ Quase branco — cor do texto principal (o texto que precisa ser bem legível). */
-
   --cinza: #a39cbd;
-  /* ↑ Cinza roxeado — cor dos textos secundários (descrições, menos importante que o texto principal). */
-
   --card-fundo: #151320;
-  /* ↑ Fundo das caixinhas (cards), um pouco mais claro que o fundo geral, pra elas se destacarem. */
 }
-/* ↑ Fecha o bloco de variáveis. */
 
 
 /* ============================================
    2. RESET BÁSICO
-   O navegador já vem com espaçamentos padrão.
-   Essas linhas zeram tudo, pra você controlar 100% do layout.
    ============================================ */
 
 * {
-  /* ↑ O asterisco (*) significa "TODO elemento da página, sem exceção". */
-
   margin: 0;
-  /* ↑ Zera o espaço EXTERNO de todo elemento (o navegador dá margem padrão em títulos, por exemplo). */
-
   padding: 0;
-  /* ↑ Zera o espaço INTERNO de todo elemento. */
-
-  box-sizing: border-box;
-  /* ↑ Faz o padding e a borda ENTRAREM no tamanho total do elemento, em vez de somar por fora. Evita contas confusas de tamanho. */
+  box-sizing: border-box; /* padding e borda entram no tamanho total do elemento */
 }
 
-
 body {
-  /* ↑ Estilo do <body> — a página inteira. */
-
   font-family: Arial, Helvetica, sans-serif;
-  /* ↑ Define a fonte do texto. Se "Arial" não existir no computador do visitante, tenta "Helvetica", senão usa qualquer fonte sem serifa (sans-serif). */
-
-  background-color: var(--preto);
-  /* ↑ Usa a variável --preto criada lá em cima, como cor de fundo. */
-
   color: var(--cinza-claro);
-  /* ↑ Cor padrão do texto em toda a página (a menos que outra regra sobrescreva). */
-
   line-height: 1.6;
-  /* ↑ Espaço entre as linhas de um parágrafo. 1.6 = 160% do tamanho da fonte. Deixa a leitura mais confortável. */
 }
 
 
@@ -70,84 +34,61 @@ body {
    ============================================ */
 
 header {
-  position: sticky;
-  /* ↑ "sticky" faz o elemento "grudar" numa posição ao rolar a página, em vez de rolar junto. */
-
+  position: sticky; /* fica grudado no topo ao rolar a página */
   top: 0;
-  /* ↑ Diz ONDE ele gruda: no topo (0 pixels de distância do topo da tela). */
-
   background-color: var(--preto);
-  /* ↑ Fundo do menu — mesma cor do resto, pra ele não ficar transparente sobre o conteúdo ao rolar. */
-
   border-bottom: 1px solid #2a2540;
-  /* ↑ Uma linha fina (1px), sólida, cor #2a2540, só embaixo do header — separa visualmente o menu do conteúdo. */
-
   padding: 16px 24px;
-  /* ↑ Espaço interno: 16px em cima/embaixo, 24px nas laterais (quando são 2 valores, é "vertical horizontal"). */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  z-index: 100;
 }
-
 
 nav {
   display: flex;
-  /* ↑ Faz os filhos diretos do <nav> ficarem lado a lado (na horizontal), em vez de empilhados. */
-
-  justify-content: space-between;
-  /* ↑ Empurra os filhos pras EXTREMIDADES: logo na esquerda, lista de links na direita, com espaço vazio no meio. */
-
+  justify-content: space-between; /* logo de um lado, links do outro */
   align-items: center;
-  /* ↑ Alinha os filhos no CENTRO verticalmente (útil quando um item é mais alto que o outro). */
-
   flex-wrap: wrap;
-  /* ↑ Se não couber tudo numa linha (tela pequena), quebra para a linha de baixo em vez de espremer ou vazar. */
-
   max-width: 1000px;
-  /* ↑ Largura MÁXIMA do menu — em telas muito largas, ele não estica além de 1000px. */
-
-  margin: 0 auto;
-  /* ↑ margin 0 em cima/embaixo, e "auto" nos lados — isso CENTRALIZA o elemento horizontalmente na página. */
-
+  margin: 0 auto; /* centraliza na página */
   gap: 12px;
-  /* ↑ Espaço entre os filhos do flex (aqui: entre a logo e a lista de links). */
 }
-
 
 .logo {
   font-weight: bold;
-  /* ↑ Deixa o texto em negrito. */
-
   font-size: 1.1rem;
-  /* ↑ Tamanho da fonte. "rem" é uma unidade relativa ao tamanho de fonte padrão do navegador (geralmente 16px), então 1.1rem ≈ 17.6px. */
 }
-
 
 nav ul {
-  display: flex;
-  /* ↑ Coloca os itens da lista (li) lado a lado, em vez de um embaixo do outro (comportamento padrão de <ul>). */
-
+  display: flex; /* links lado a lado, em vez de empilhados */
   list-style: none;
-  /* ↑ Remove as bolinhas/marcadores padrão de lista. */
-
   gap: 20px;
-  /* ↑ Espaço entre cada link do menu. */
-
   flex-wrap: wrap;
-  /* ↑ Quebra linha se não couber (mesma lógica do nav acima). */
 }
 
-
 nav a {
+  position: relative; /* âncora do sublinhado animado abaixo */
   color: var(--cinza-claro);
-  /* ↑ Cor do texto dos links do menu. */
-
   text-decoration: none;
-  /* ↑ Remove o sublinhado padrão dos links. */
 }
 
 nav a:hover {
-  /* ↑ ":hover" é um ESTADO — essa regra só vale ENQUANTO o mouse está sobre o link. */
-
   color: var(--roxo-claro);
-  /* ↑ Muda a cor do texto pra roxo claro nesse momento. */
+}
+
+/* sublinhado que "desenha" da esquerda pra direita no hover */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: var(--roxo-claro);
+  transition: width 0.25s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 
@@ -156,285 +97,237 @@ nav a:hover {
    ============================================ */
 
 .hero {
+  position: relative; /* âncora do brilho decorativo (::before) */
   text-align: center;
-  /* ↑ Centraliza o TEXTO dentro da seção (títulos, parágrafos). */
-
   padding: 100px 24px;
-  /* ↑ 100px de espaço em cima/embaixo (pra seção "respirar" na tela), 24px nas laterais. */
+}
+
+/* brilho roxo suave atrás do nome */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.25), transparent 70%);
+  z-index: -1;
+}
+
+/* cada filho direto do hero aparece em cascata ao carregar */
+.hero > * {
+  animation: aparecer-subindo 0.8s ease both;
+}
+.hero h1        { animation-delay: 0s; }
+.hero .subtitulo{ animation-delay: 0.15s; }
+.hero p         { animation-delay: 0.3s; }
+.hero .botoes   { animation-delay: 0.45s; }
+
+@keyframes aparecer-subindo {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .hero h1 {
   font-size: 3rem;
-  /* ↑ Tamanho grande pro nome, já que é o h1 (título mais importante da página). */
+  /* texto com degradê animado, em vez de cor sólida */
+  background: linear-gradient(90deg, var(--roxo-claro), #ffffff, var(--roxo-claro));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: aparecer-subindo 0.8s ease both, brilho-texto 4s linear infinite;
+}
 
-  color: var(--roxo-claro);
-  /* ↑ Cor do nome. */
+@keyframes brilho-texto {
+  to { background-position: 200% center; }
 }
 
 .hero .subtitulo {
-  /* ↑ Seletor combinado: o elemento com class="subtitulo" que estiver DENTRO de algo com class="hero". */
-
   font-size: 1.2rem;
-  /* ↑ Um pouco maior que o texto normal, pra se destacar como "subtítulo". */
-
   color: var(--roxo);
-  /* ↑ Cor roxa (mais escura que o roxo-claro do h1, pra criar hierarquia visual). */
-
   margin-top: 8px;
-  /* ↑ Espaço acima desse elemento, afastando ele do h1. */
 }
 
 .hero p {
-  /* ↑ Qualquer <p> dentro de .hero que NÃO tenha outra classe mais específica sobrescrevendo. */
-
   max-width: 500px;
-  /* ↑ Largura MÁXIMA do parágrafo — impede que o texto fique esticado demais em telas largas. */
-
   margin: 20px auto 0;
-  /* ↑ 3 valores = topo, laterais, base. 20px em cima, "auto" nas laterais (centraliza), 0 embaixo. */
-
   color: var(--cinza);
-  /* ↑ Texto num tom mais apagado que o título, pra não competir por atenção. */
 }
-
 
 .botoes {
   margin-top: 32px;
-  /* ↑ Afasta a fileira de botões do texto acima. */
-
   display: flex;
-  /* ↑ Coloca os dois botões lado a lado. */
-
   justify-content: center;
-  /* ↑ Centraliza os botões horizontalmente dentro da caixa .botoes. */
-
   gap: 16px;
-  /* ↑ Espaço entre os dois botões. */
-
   flex-wrap: wrap;
-  /* ↑ Em telas pequenas, se não couberem lado a lado, um desce pra linha de baixo. */
 }
 
 .botao {
   padding: 12px 24px;
-  /* ↑ Espaço interno do botão — isso que dá o "tamanho" clicável dele, além do texto. */
-
   border-radius: 6px;
-  /* ↑ Arredonda as quinas do botão (6px de curva). */
-
   text-decoration: none;
-  /* ↑ Remove sublinhado (já que .botao é aplicado a um <a>, que por padrão seria sublinhado). */
-
   font-weight: bold;
-  /* ↑ Texto do botão em negrito. */
-
   border: 2px solid var(--roxo);
-  /* ↑ Borda de 2px, sólida, na cor roxa — usada nos dois tipos de botão. */
 }
 
 .botao-cheio {
   background-color: var(--roxo);
-  /* ↑ Preenche o fundo do botão com roxo (o botão "principal", GitHub). */
-
   color: white;
-  /* ↑ Texto branco, pra contrastar com o fundo roxo. */
 }
 
 .botao-cheio:hover {
   background-color: var(--roxo-claro);
-  /* ↑ Ao passar o mouse, clareia o fundo. */
-
   border-color: var(--roxo-claro);
-  /* ↑ E a borda acompanha a mesma cor, pra ficar uniforme. */
+  box-shadow: 0 4px 16px rgba(147, 51, 234, 0.4);
 }
 
 .botao-vazio {
   color: var(--roxo-claro);
-  /* ↑ Esse botão não tem fundo (é "vazio") — só o texto e a borda aparecem, texto na cor roxo-claro. */
 }
 
 .botao-vazio:hover {
   background-color: var(--roxo);
-  /* ↑ Ao passar o mouse, GANHA um fundo roxo (efeito de "preenchendo"). */
-
   color: white;
-  /* ↑ Texto vira branco pra continuar legível sobre o fundo roxo. */
+  box-shadow: 0 4px 16px rgba(147, 51, 234, 0.4);
 }
 
 
 /* ============================================
-   5. SEÇÕES GERAIS (Sobre, Habilidades, Projetos)
+   5. SEÇÕES GERAIS (Sobre, Habilidades, Projetos, Cursos)
    ============================================ */
 
 .secao {
   padding: 64px 24px;
-  /* ↑ Espaço interno padrão de cada seção — em cima/embaixo e nas laterais. */
-
   max-width: 1000px;
-  /* ↑ Largura máxima do conteúdo, igual ao menu, pra tudo ficar alinhado verticalmente. */
-
   margin: 0 auto;
-  /* ↑ Centraliza a seção na página (mesmo truque do nav). */
 }
 
 .secao h2 {
   font-size: 2rem;
-  /* ↑ Tamanho do título de cada seção. */
-
   color: var(--roxo-claro);
-  /* ↑ Cor do título. */
-
   margin-bottom: 24px;
-  /* ↑ Espaço abaixo do título, separando ele do conteúdo da seção. */
-
   border-bottom: 2px solid var(--roxo);
-  /* ↑ Linha roxa por baixo do título, como um sublinhado decorativo. */
-
+  border-left: 4px solid var(--roxo);
   padding-bottom: 8px;
-  /* ↑ Espaço entre o texto do título e essa linha (senão a linha "coladaria" nas letras). */
-
-  display: inline-block;
-  /* ↑ Faz a caixa do título (e portanto a linha debaixo dela) ter só o tamanho do TEXTO, não a largura toda da seção. */
+  padding-left: 14px;
+  display: inline-block; /* a linha de baixo acompanha só o tamanho do texto */
 }
 
 .secao p {
   color: var(--cinza);
-  /* ↑ Parágrafos dentro de qualquer seção usam esse cinza mais apagado. */
-
   max-width: 700px;
-  /* ↑ Impede que o texto fique numa linha gigante em telas largas — melhora a leitura. */
-
   margin-bottom: 12px;
-  /* ↑ Espaço entre um parágrafo e o próximo. */
 }
+
 .foto-perfil {
   width: 160px;
-  /* ↑ largura da foto */
-
   height: 160px;
-  /* ↑ altura — igual à largura, pra ficar um quadrado perfeito antes de arredondar */
-
-  border-radius: 50%;
-  /* ↑ arredonda os cantos. Com 50% num quadrado, ela vira um CÍRCULO */
-
+  border-radius: 50%; /* deixa a foto redonda */
   object-fit: cover;
-  /* ↑ se a foto não for quadrada, isso corta as bordas pra preencher o círculo sem esticar/distorcer a imagem */
-
   border: 3px solid var(--roxo);
-  /* ↑ uma borda roxa ao redor da foto, usando a mesma variável de cor do resto do site */
-
+  box-shadow: 0 0 0 6px rgba(147, 51, 234, 0.15); /* anel de brilho extra */
   margin-bottom: 24px;
-  /* ↑ espaço entre a foto e o texto abaixo dela */
-
   display: block;
-  /* ↑ garante que a foto fique numa "linha própria", não colada ao lado do texto */
+  transition: box-shadow 0.3s ease;
 }
 
+.foto-perfil:hover {
+  box-shadow: 0 0 0 10px rgba(147, 51, 234, 0.22);
+}
+
+
 /* ============================================
-   6. CARDS (Habilidades / Projetos / Contato)
+   6. CARDS (Habilidades / Projetos / Cursos / Contato)
    ============================================ */
 
 .cards {
   display: flex;
-  /* ↑ Coloca os cards lado a lado. */
-
-  flex-wrap: wrap;
-  /* ↑ Quando não couberem todos numa linha, os cards descem pra próxima — é isso que torna o layout responsivo. */
-
+  flex-wrap: wrap; /* reorganiza sozinho em telas menores */
   gap: 20px;
-  /* ↑ Espaço entre cada card. */
-
   margin-top: 24px;
-  /* ↑ Afasta a fileira de cards do título da seção. */
 }
 
 .card {
+  position: relative; /* âncora da barrinha decorativa do topo */
   background-color: var(--card-fundo);
-  /* ↑ Fundo levemente mais claro que o resto da página, pra o card se destacar. */
-
   border: 1px solid #2a2540;
-  /* ↑ Contorno fino e discreto. */
-
   border-radius: 8px;
-  /* ↑ Cantos arredondados. */
-
   padding: 24px;
-  /* ↑ Espaço interno do card, entre a borda e o conteúdo (título, texto). */
-
   flex: 1 1 260px;
-  /* ↑ Regra do flexbox: o card TENTA ter 260px de largura, mas pode ENCOLHER ou CRESCER pra preencher o espaço disponível. */
-
   color: var(--cinza-claro);
-  /* ↑ Cor do texto dentro do card. */
-
   text-decoration: none;
-  /* ↑ Remove sublinhado — necessário pros cards de Contato, que são links (<a>). */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--roxo);
+  box-shadow: 0 8px 24px rgba(147, 51, 234, 0.25);
+}
+
+/* barrinha degradê que "cresce" no topo do card ao passar o mouse */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--roxo), var(--roxo-claro));
+  border-radius: 8px 8px 0 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
 }
 
 .card h3 {
   color: var(--roxo-claro);
-  /* ↑ Cor do título dentro do card. */
-
   margin-bottom: 12px;
-  /* ↑ Espaço entre o título do card e o conteúdo abaixo dele. */
 }
 
+/* lista de habilidades vira "pílulas" lado a lado */
 .card ul {
-  list-style: none;
-  /* ↑ Remove os marcadores da lista de habilidades dentro do card. */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .card li {
-  color: var(--cinza);
-  /* ↑ Cor de cada item da lista (Python, C#, etc). */
-
-  padding: 4px 0;
-  /* ↑ Um pequeno respiro vertical entre um item da lista e o outro. */
+  list-style: none;
+  background-color: rgba(147, 51, 234, 0.12);
+  border: 1px solid var(--roxo);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--cinza-claro);
 }
 
 .card .tecnologias {
   color: var(--roxo-claro);
-  /* ↑ Destaca a linha de tecnologias usadas em cada projeto. */
-
   font-size: 0.9rem;
-  /* ↑ Um pouco menor que o texto normal, por ser uma informação secundária. */
-
   margin-bottom: 12px;
-  /* ↑ Espaço entre essa linha e a descrição do projeto. */
 }
 
 .card p {
   color: var(--cinza);
-  /* ↑ Parágrafos de descrição dentro do card. */
-}
-
-.card:hover {
-  /* ↑ Enquanto o mouse está sobre QUALQUER card. */
-
-  border-color: var(--roxo);
-  /* ↑ A borda fica roxa, dando feedback visual de que o card é interativo. */
 }
 
 .link-projeto {
   display: inline-block;
-  /* ↑ Permite dar margem/tamanho ao link sem ele quebrar o fluxo do texto normal. */
-
   margin-top: 12px;
-  /* ↑ Afasta o link "Ver projeto" da descrição acima. */
-
   color: var(--roxo-claro);
-  /* ↑ Cor do link. */
-
   text-decoration: none;
-  /* ↑ Sem sublinhado. */
-
   font-weight: bold;
-  /* ↑ Negrito, pra parecer clicável/importante. */
 }
 
 .link-projeto:hover {
   color: var(--roxo);
-  /* ↑ Escurece um pouco ao passar o mouse — dá feedback de interação. */
 }
 
 
@@ -444,32 +337,37 @@ nav a:hover {
 
 .secao-escura {
   background-color: #000000;
-  /* ↑ Preto puro, mais escuro que o --preto usado no resto do site, pra criar contraste no final da página. */
-
   max-width: 100%;
-  /* ↑ Sobrescreve o max-width: 1000px de .secao — aqui o FUNDO preto ocupa a tela toda. */
-
   padding-left: 24px;
-  /* ↑ Espaço lateral esquerdo (repetido aqui porque o max-width acima "resetou" o comportamento anterior). */
-
   padding-right: 24px;
-  /* ↑ Espaço lateral direito. */
 }
 
 .secao-escura > h2,
 .secao-escura > p,
 .secao-escura .cards {
-  /* ↑ Essas três linhas são um SELETOR MÚLTIPLO (separados por vírgula) — a regra abaixo vale pros três ao mesmo tempo.
-       O ">" quer dizer "filho direto". Já ".cards" sem ">" pega em qualquer profundidade. */
-
   max-width: 1000px;
-  /* ↑ Mesmo assim, o CONTEÚDO de dentro (título, texto, cards) continua limitado a 1000px, só o fundo preto que é largo. */
-
   margin-left: auto;
-  /* ↑ Centraliza esse conteúdo dentro do fundo preto. */
+  margin-right: auto; /* centraliza o conteúdo dentro do fundo preto largo */
+}
 
-  margin-right: auto;
-  /* ↑ Junto com margin-left: auto, centraliza horizontalmente. */
+/* seta que "escorrega" pra direita no hover dos cards de contato */
+#contato .card {
+  padding-right: 48px;
+}
+
+#contato .card::after {
+  content: "→";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--roxo-claro);
+  font-size: 1.2rem;
+  transition: transform 0.25s ease;
+}
+
+#contato .card:hover::after {
+  transform: translate(6px, -50%);
 }
 
 
@@ -479,52 +377,23 @@ nav a:hover {
 
 footer {
   text-align: center;
-  /* ↑ Centraliza o texto de créditos. */
-
   padding: 24px;
-  /* ↑ Espaço ao redor do texto do rodapé. */
-
   color: var(--cinza);
-  /* ↑ Texto discreto, num tom apagado. */
-
   font-size: 0.85rem;
-  /* ↑ Fonte pequena, já que é uma informação secundária (direitos autorais). */
 }
 
 
 /* ============================================
-   9. RESPONSIVO — ajustes pra telas pequenas
-   ============================================ */
-
-@media (max-width: 600px) {
-  /* ↑ "media query": tudo dentro desse bloco SÓ se aplica quando a tela tem 600px de largura ou menos (celulares). */
-
-  .hero h1 {
-    font-size: 2.2rem;
-    /* ↑ Reduz o tamanho do nome no celular, pra não ficar gigante numa tela pequena. */
-  }
-
-  nav ul {
-    gap: 12px;
-    /* ↑ Diminui um pouco o espaço entre os links do menu no celular, pra caberem melhor. */
-  }
-}
-/* ============================================
-   10. MELHORIAS VISUAIS
-   Bloco novo — só adiciona efeitos, não mexe no resto.
+   9. EFEITOS GERAIS DA PÁGINA
    ============================================ */
 
 html {
-  scroll-behavior: smooth;
-  /* ↑ Faz o clique no menu "deslizar" suavemente até a seção, em vez de pular seco. */
+  scroll-behavior: smooth; /* rolagem suave ao clicar no menu */
 }
 
 ::selection {
   background: var(--roxo);
-  /* ↑ Quando alguém seleciona um texto na página (arrastando o mouse), o fundo da seleção fica roxo... */
-
   color: white;
-  /* ↑ ...e o texto fica branco, em vez do azul padrão do navegador. Detalhe pequeno, mas dá acabamento. */
 }
 
 body {
@@ -532,305 +401,43 @@ body {
     radial-gradient(circle at 15% 20%, rgba(147, 51, 234, 0.15), transparent 40%),
     radial-gradient(circle at 85% 75%, rgba(192, 132, 252, 0.12), transparent 40%),
     var(--preto);
-  /* ↑ Isso SUBSTITUI o fundo liso por preto + dois "brilhos" roxos suaves, tipo luz difusa no canto superior esquerdo e inferior direito. Dá profundidade sem precisar de nenhuma imagem. */
-
   background-attachment: fixed;
-  /* ↑ Os brilhos ficam "grudados" na tela, não rolam junto com o conteúdo — como se fosse luz vindo de trás de tudo. */
 }
 
-header {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  /* ↑ Uma sombra suave embaixo do menu, pra ele parecer "flutuar" levemente sobre o conteúdo ao rolar a página. */
-}
-
-.hero {
-  position: relative;
-  /* ↑ Necessário pra "âncorar" o brilho decorativo do próximo bloco (.hero::before) dentro dessa seção. */
-}
-
-.hero::before {
-  content: "";
-  /* ↑ Todo ::before precisa de "content", mesmo vazio, senão não aparece. */
-
-  position: absolute;
-  /* ↑ Posiciona esse elemento "fantasma" livremente dentro do .hero (que agora é o ponto de referência). */
-
-  top: 50%;
-  left: 50%;
-  /* ↑ Começa a posicionar a partir do centro da seção. */
-
-  transform: translate(-50%, -50%);
-  /* ↑ Ajusta pra ficar EXATAMENTE centralizado (compensa o próprio tamanho do elemento). */
-
-  width: 500px;
-  height: 500px;
-  /* ↑ Tamanho do círculo de brilho. */
-
-  background: radial-gradient(circle, rgba(147, 51, 234, 0.25), transparent 70%);
-  /* ↑ Um brilho roxo que vai desaparecendo (transparent) nas bordas — como um holofote suave atrás do seu nome. */
-
-  z-index: -1;
-  /* ↑ Manda esse brilho pra TRÁS do texto, pra não cobrir o nome. */
-}
-
-.card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  /* ↑ Faz as próximas mudanças (no hover) acontecerem suavemente em 0.2 segundos, em vez de trocar de uma vez. */
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  /* ↑ O card "sobe" 4px quando o mouse passa por cima — efeito de flutuar. */
-
-  box-shadow: 0 8px 24px rgba(147, 51, 234, 0.25);
-  /* ↑ Uma sombra roxa suave por baixo do card, reforçando a sensação de que ele "levantou". */
-}
-
-.foto-perfil {
-  box-shadow: 0 0 0 6px rgba(147, 51, 234, 0.15);
-  /* ↑ Um segundo "anel" roxo bem suave ao redor da borda que você já tem, como um brilho. */
-
-  transition: box-shadow 0.3s ease;
-  /* ↑ Deixa esse brilho suave ao aparecer/mudar. */
-}
-
-.foto-perfil:hover {
-  box-shadow: 0 0 0 10px rgba(147, 51, 234, 0.22);
-  /* ↑ O anel cresce um pouco quando você passa o mouse sobre a foto. */
-}
-
-.botao-cheio:hover,
-.botao-vazio:hover {
-  box-shadow: 0 4px 16px rgba(147, 51, 234, 0.4);
-  /* ↑ Um brilho roxo por baixo dos botões ao passar o mouse, além da mudança de cor que você já tinha. */
-}
-
-.card ul {
-  display: flex;
-  /* ↑ SOBRESCREVE o comportamento padrão de lista: em vez de um item embaixo do outro, ficam lado a lado. */
-
-  flex-wrap: wrap;
-  /* ↑ Se não couberem todos numa linha, quebram pra próxima. */
-
-  gap: 8px;
-  /* ↑ Espaço entre cada "bolinha" de habilidade. */
-}
-
-.card li {
-  background-color: rgba(147, 51, 234, 0.12);
-  /* ↑ Fundo roxo bem fraco, só pra destacar cada item como uma "pílula". */
-
-  border: 1px solid var(--roxo);
-  /* ↑ Contorno roxo ao redor de cada habilidade. */
-
-  padding: 6px 14px;
-  /* ↑ Espaço interno, dando o formato de "chip"/"tag". */
-
-  border-radius: 20px;
-  /* ↑ Bem arredondado, formato de pílula. */
-
-  font-size: 0.85rem;
-  /* ↑ Um pouco menor que o texto normal. */
-
-  color: var(--cinza-claro);
-  /* ↑ Sobrescreve a cor cinza-apagada de antes, deixando mais legível dentro do chip. */
-}
-
-/* Barra de rolagem roxa (só funciona em Chrome/Edge) */
+/* barra de rolagem roxa (só funciona em Chrome/Edge) */
 ::-webkit-scrollbar {
   width: 10px;
-  /* ↑ Largura da barra de rolagem lateral. */
 }
-
 ::-webkit-scrollbar-track {
   background: var(--preto);
-  /* ↑ Cor do "trilho" por onde a barrinha desliza. */
 }
-
 ::-webkit-scrollbar-thumb {
   background: var(--roxo);
-  /* ↑ Cor da barrinha em si. */
-
   border-radius: 10px;
-  /* ↑ Deixa ela arredondada. */
 }
+
 
 /* ============================================
-   11. DETALHES FINOS
-   Bloco novo — mais uma camada de polimento.
+   10. RESPONSIVO — telas pequenas (celular)
    ============================================ */
 
-.hero h1 {
-  background: linear-gradient(90deg, var(--roxo-claro), #ffffff, var(--roxo-claro));
-  /* ↑ Em vez de uma cor sólida, o texto vai receber um DEGRADÊ que passa de roxo claro pra branco e volta. */
-
-  background-size: 200% auto;
-  /* ↑ O degradê é MAIOR que o texto (200% da largura) — isso é o que permite ele "correr" depois, na animação. */
-
-  -webkit-background-clip: text;
-  background-clip: text;
-  /* ↑ Essa é a parte mágica: faz o degradê de fundo ser "recortado" no formato exato das letras. */
-
-  color: transparent;
-  /* ↑ Deixa a cor do texto transparente, pra você enxergar o degradê por trás das letras, não uma cor sólida por cima. */
-
-  animation: brilho-texto 4s linear infinite;
-  /* ↑ Aplica a animação "brilho-texto" (definida abaixo), com 4 segundos de duração, sem pausas (linear), repetindo pra sempre (infinite). */
-}
-
-@keyframes brilho-texto {
-  /* ↑ Aqui você define os "quadros" da animação — o que muda do início ao fim. */
-
-  to {
-    background-position: 200% center;
-    /* ↑ Move a posição do degradê de fundo até "correr" por completo — é isso que dá a sensação de brilho passando pelo texto. */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.2rem;
   }
-}
 
-
-.hero > * {
-  /* ↑ ">" significa FILHO DIRETO — ou seja, cada elemento que está direto dentro de .hero (h1, p, div), sem contar os netos. */
-
-  animation: aparecer-subindo 0.8s ease both;
-  /* ↑ Toca uma animação de 0.8s, suave (ease), e "both" mantém o estado inicial e final da animação (não pisca no começo/fim). */
-}
-
-.hero h1 { animation-delay: 0s; }
-/* ↑ O nome aparece primeiro, sem espera. */
-
-.hero .subtitulo { animation-delay: 0.15s; }
-/* ↑ O subtítulo aparece 0.15s depois do nome. */
-
-.hero p { animation-delay: 0.3s; }
-/* ↑ O parágrafo aparece 0.3s depois do nome. */
-
-.hero .botoes { animation-delay: 0.45s; }
-/* ↑ Os botões são os últimos a aparecer — isso cria um efeito "em cascata", um elemento surgindo depois do outro. */
-
-@keyframes aparecer-subindo {
-  from {
-    opacity: 0;
-    /* ↑ Começa INVISÍVEL... */
-
-    transform: translateY(20px);
-    /* ↑ ...e 20px mais abaixo da posição final. */
+  nav ul {
+    gap: 12px;
   }
-  to {
-    opacity: 1;
-    /* ↑ Termina totalmente visível... */
 
-    transform: translateY(0);
-    /* ↑ ...e na posição normal. Resultado: o elemento "sobe e aparece" suavemente. */
+  nav {
+    flex-direction: column;
+    /* ↑ Empilha a logo e a lista de links, em vez de lado a lado */
   }
-}
 
-
-.secao h2 {
-  border-left: 4px solid var(--roxo);
-  /* ↑ Adiciona uma barrinha roxa vertical do lado esquerdo do título (além da linha embaixo que você já tinha). */
-
-  padding-left: 14px;
-  /* ↑ Afasta o texto dessa nova barrinha, pra não ficar colado. */
-}
-
-
-nav a {
-  position: relative;
-  /* ↑ Necessário pra "âncorar" o sublinhado animado do próximo bloco dentro do próprio link. */
-}
-
-nav a::after {
-  content: "";
-  /* ↑ Elemento "fantasma" — obrigatório ter content, mesmo vazio. */
-
-  position: absolute;
-  /* ↑ Posiciona esse elemento livremente dentro do link. */
-
-  left: 0;
-  bottom: -4px;
-  /* ↑ Cola essa linha 4px abaixo do texto do link. */
-
-  width: 0;
-  /* ↑ Começa com largura ZERO — ou seja, invisível. */
-
-  height: 2px;
-  /* ↑ Altura fina, de uma linha. */
-
-  background-color: var(--roxo-claro);
-  /* ↑ Cor da linha. */
-
-  transition: width 0.25s ease;
-  /* ↑ Faz a largura mudar suavemente, em vez de aparecer/sumir de repente. */
-}
-
-nav a:hover::after {
-  width: 100%;
-  /* ↑ Ao passar o mouse, a linha CRESCE até cobrir toda a largura do texto — efeito de sublinhado "desenhando". */
-}
-
-
-.card {
-  position: relative;
-  /* ↑ Necessário pra "âncorar" a barrinha decorativa do topo (próximo bloco) dentro do card. */
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-
-  top: 0;
-  left: 0;
-  right: 0;
-  /* ↑ Gruda a barrinha na borda de cima do card, esticada de ponta a ponta. */
-
-  height: 3px;
-  /* ↑ Altura bem fina. */
-
-  background: linear-gradient(90deg, var(--roxo), var(--roxo-claro));
-  /* ↑ Degradê horizontal de roxo escuro pro roxo claro. */
-
-  border-radius: 8px 8px 0 0;
-  /* ↑ Arredonda só os dois cantos de CIMA, acompanhando o arredondamento do card. */
-
-  transform: scaleX(0);
-  /* ↑ Começa "achatada" na horizontal (invisível na prática). */
-
-  transform-origin: left;
-  /* ↑ Diz que o "crescimento" dela deve começar pela esquerda, não do centro. */
-
-  transition: transform 0.3s ease;
-  /* ↑ Anima a mudança de tamanho suavemente. */
-}
-
-.card:hover::before {
-  transform: scaleX(1);
-  /* ↑ Ao passar o mouse no card, a barrinha "cresce" da esquerda pra direita até cobrir o topo todo. */
-}
-
-
-#contato .card {
-  padding-right: 48px;
-  /* ↑ Abre um espaço extra à direita do card, pra caber a setinha do próximo bloco sem espremer o texto. */
-}
-
-#contato .card::after {
-  content: "→";
-  /* ↑ Aqui o content NÃO é vazio — é o próprio caractere de seta, tratado como texto. */
-
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  /* ↑ Centraliza a seta verticalmente no meio do card. */
-
-  color: var(--roxo-claro);
-  font-size: 1.2rem;
-
-  transition: transform 0.25s ease;
-  /* ↑ Anima o próximo movimento suavemente. */
-}
-
-#contato .card:hover::after {
-  transform: translate(6px, -50%);
-  /* ↑ Ao passar o mouse, a seta "escorrega" 6px pra direita — sugere "clique aqui". */
+  nav ul {
+    justify-content: center;
+    width: 100%;
+    /* ↑ Centraliza os links e usa a largura toda, ficando mais arrumado */
+  }
 }
