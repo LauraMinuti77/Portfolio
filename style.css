@@ -23,7 +23,7 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
   color: var(--cinza-claro);
   line-height: 1.6;
 }
@@ -119,10 +119,22 @@ nav a:hover::after {
 .hero > * {
   animation: aparecer-subindo 0.8s ease both;
 }
-.hero h1        { animation-delay: 0s; }
-.hero .subtitulo{ animation-delay: 0.15s; }
-.hero p         { animation-delay: 0.3s; }
-.hero .botoes   { animation-delay: 0.45s; }
+.hero .badge     { animation-delay: 0s; }
+.hero h1         { animation-delay: 0.15s; }
+.hero .subtitulo { animation-delay: 0.3s; }
+.hero p          { animation-delay: 0.45s; }
+.hero .botoes    { animation-delay: 0.6s; }
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid var(--roxo);
+  border-radius: 20px;
+  background: rgba(147, 51, 234, 0.08);
+  color: var(--roxo-claro);
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
 
 @keyframes aparecer-subindo {
   from { opacity: 0; transform: translateY(20px); }
@@ -221,6 +233,17 @@ nav a:hover::after {
   margin-bottom: 12px;
 }
 
+.sobre-flex {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.sobre-texto p {
+  margin-bottom: 12px;
+}
+
 .foto-perfil {
   width: 160px;
   height: 160px;
@@ -228,8 +251,8 @@ nav a:hover::after {
   object-fit: cover;
   border: 3px solid var(--roxo);
   box-shadow: 0 0 0 6px rgba(147, 51, 234, 0.15); /* anel de brilho extra */
-  margin-bottom: 24px;
   display: block;
+  flex-shrink: 0; /* a foto não encolhe pra abrir espaço pro texto */
   transition: box-shadow 0.3s ease;
 }
 
@@ -328,6 +351,31 @@ nav a:hover::after {
 
 .link-projeto:hover {
   color: var(--roxo);
+}
+
+/* Cursos: grade em vez de fileira flexível, pra igualar a altura de todos os cards de uma vez */
+.cards-cursos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* Cursos: borda lateral em vez de card fechado, pra diferenciar da seção de Projetos/Habilidades */
+.card-curso {
+  background-color: transparent;
+  border: none;
+  border-left: 3px solid var(--roxo);
+  border-radius: 0;
+  padding-left: 20px;
+}
+
+.card-curso::before {
+  display: none; /* tira a barrinha do topo, já que aqui o destaque é a borda lateral */
+}
+
+.card-curso:hover {
+  border-left-color: var(--roxo-claro);
+  transform: translateX(4px);
+  box-shadow: none;
 }
 
 
@@ -439,5 +487,10 @@ body {
     justify-content: center;
     width: 100%;
     /* ↑ Centraliza os links e usa a largura toda, ficando mais arrumado */
+  }
+
+  .sobre-flex {
+    justify-content: center;
+    text-align: center;
   }
 }
